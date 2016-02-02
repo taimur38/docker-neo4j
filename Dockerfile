@@ -37,6 +37,8 @@ RUN apt-get clean && \
     sed -i "s|#org.neo4j.server.webserver.address|org.neo4j.server.webserver.address|g" /var/lib/neo4j/conf/neo4j-server.properties && \
     sed -i "s|#org.neo4j.server.thirdparty_jaxrs_classes=org.neo4j.examples.server.unmanaged=/examples/unmanaged|org.neo4j.server.thirdparty_jaxrs_classes=extension=/service|g" /var/lib/neo4j/conf/neo4j-server.properties
 
+RUN echo org.neo4j.server.webadmin.data.uri=/neo-experimental/api/neo-prod >> /var/lib/neo4j/conf/neo4j-server.properties
+
 # Expose the Neo4j browser to the host OS on port 7474 and 1337
 EXPOSE 7474
 EXPOSE 1337
